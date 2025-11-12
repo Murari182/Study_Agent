@@ -339,3 +339,12 @@ Below are short excerpts and descriptions of the most significant edits. They ar
       <button onClick={() => setFilter('Easy')}>Easy</button>
       ```
 
+
+
+   Meet the Team Behind Study_Agent:<br>
+   1) Sreeramadasu Mukunda Rama Chary<br>       
+   2)Yaswanth B<br>                                                        
+   3)Boyinapalli Bhargav Venkata Dora<br>             
+   4)Anegouni Swaranjith Kumar Goud<br>
+                   
+
