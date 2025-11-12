@@ -1,0 +1,32 @@
+fastapi>=0.95
+uvicorn[standard]
+python-multipart
+pymupdf
+
+# LangChain and providers
+langchain>=0.0.300
+langchain-core
+langchain-openai
+
+# Cloud LLM SDKs
+openai
+google-generativeai
+
+# Embeddings / tokenizers
+tiktoken
+
+# Vector DB
+faiss-cpu
+
+# Utilities
+requests
+python-dotenv
+pydantic
+tqdm
+aiofiles
+
+# Optional / community
+# langchain-community  # enable if you need community integrations
+
+# Local LLM runner support
+ollama  # optional: only required if using Ollama locally
