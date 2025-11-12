@@ -33,11 +33,15 @@ export default function UploadPanel({ onDone }){
   };
 
   return (
-    <div style={{ border: "1px solid #ddd", padding: 10, borderRadius: 8 }}>
-      <input type="file" accept="application/pdf" onChange={e => setFile(e.target.files[0])} />
-  <button onClick={handleUpload} style={{ marginLeft: 10 }}>Upload & Generate</button>
-  <button onClick={handleRunDemo} style={{ marginLeft: 10 }}>Run Demo</button>
-      <div style={{ marginTop: 8 }}>{status}</div>
+    <div className="panel" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+      <input className="" type="file" accept="application/pdf" onChange={e => setFile(e.target.files[0])} />
+      <div style={{ display: 'flex', gap: 8 }}>
+        <button className="btn btn-primary" onClick={handleUpload}>Upload & Generate</button>
+        <button className="btn btn-ghost" onClick={handleRunDemo}>Run Demo</button>
+      </div>
+      <div style={{ marginTop: 8 }}>
+        {status === 'Running demo...' || status === 'Uploading...' ? <div className="loading-shimmer"/> : <div>{status}</div>}
+      </div>
     </div>
   );
 }

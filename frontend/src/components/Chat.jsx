@@ -25,10 +25,12 @@ export default function Chat(){
   return (
     <div>
       <textarea value={q} onChange={e=>setQ(e.target.value)} rows={3} style={{ width: "100%" }} />
-      <button onClick={ask} disabled={loading}>Ask</button>
+      <div style={{ marginTop: 8 }}>
+        <button className="btn btn-primary" onClick={ask} disabled={loading}>{loading ? 'Asking...' : 'Ask'}</button>
+      </div>
       <div style={{ marginTop: 10 }}>
         <strong>Answer</strong>
-        <div style={{ whiteSpace: "pre-wrap", background: "#fafafa", padding: 8, borderRadius: 6 }}>{ans}</div>
+        <div className="card" style={{ whiteSpace: "pre-wrap", padding: 8, marginTop: 8 }}>{ans}</div>
       </div>
       <div style={{ marginTop: 12 }}>
         <strong>History</strong>

@@ -20,30 +20,27 @@ export default function Quizzes({ quizzes }){
           <button
             key={d}
             onClick={() => setFilter(d)}
-            style={{
-              marginRight: 8,
-              padding: "6px 10px",
-              background: filter === d ? '#0366d6' : '#eee',
-              color: filter === d ? '#fff' : '#000',
-              border: 'none',
-              borderRadius: 6,
-              cursor: 'pointer'
-            }}
+            className={`btn-filter ${filter === d ? 'active' : ''}`}
+            style={{ marginRight: 8 }}
           >{d}</button>
         ))}
       </div>
 
-      {filtered.map((q, idx) => (
-        <div key={idx} style={{ padding: 10, borderBottom: "1px solid #eee" }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div><strong>{idx+1}. {q.question}</strong></div>
-            <div style={{ fontSize: 12, color: '#555' }}>{q.difficulty || 'Medium'}</div>
+      <div className="staggered">
+        {filtered.map((q, idx) => (
+          <div key={idx} className="card" style={{ marginBottom: 10 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div><strong>{idx+1}. {q.question}</strong></div>
+              <div>
+                <span className={`badge-difficulty ${(q.difficulty||'Medium').toLowerCase()}`}>{q.difficulty || 'Medium'}</span>
+              </div>
+            </div>
+            <ul>
+              {q.options && q.options.map((o,i)=> <li key={i}>{o}</li>)}
+            </ul>
           </div>
-          <ul>
-            {q.options && q.options.map((o,i)=> <li key={i}>{o}</li>)}
-          </ul>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
